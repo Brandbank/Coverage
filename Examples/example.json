@@ -1,0 +1,87 @@
+[
+    {
+        "ownLabel": false,
+        "description": "Delicious Test Beverage #1",
+        "retailerId": "55001",
+        "rangedOnlineDate": "2018-04-01T00:00:00.000",
+        "gtins": [
+            {
+                "gtin": "0055000000001",
+                "supplier": "Jasons Testy Beverages"
+            },
+            {
+                "gtin": "0055000000001",
+                "supplier": "Jasons Competitor's Testy Beverages",
+              	"preferred": true
+            }
+        ],
+        "categories": [
+            {
+                "level": 1,
+              	"code": "1",
+                "value": "Category1"
+            },
+            {
+              	"level": 2,
+                "code": "1.1",
+                "value": "Category1.1"
+            },
+            {
+              	"level": 3,
+                "code": "1.1.1",
+                "value": "Category1.1.1"
+            },
+            {
+              	"level": 4,
+                "code": "1.1.1.1",
+                "value": "Category1.1.1.1"
+            }
+        ],
+      	"extensions": [
+      		{
+      			"code": "Promotional",
+      			"value": "Buy one get one free"
+    		}
+      	]
+    },
+    {
+        "ownLabel": false,
+        "description": "Delicious Test Beverage #2",
+        "retailerId": "55002",
+        "rangedOnlineDate": "2018-04-01T00:00:00.000",
+        "gtins": [
+            {
+                "gtin": "0055000000004",
+                "supplier": "Jasons Testy Beverages",
+                "preferred": true
+            },
+            {
+                "gtin": "0055000000003",
+                "supplier": "Jasons Competitor's Testy Beverages"
+            }
+        ],
+        "categories": [
+            {
+                "level": 1,
+              	"code": "2",
+                "value": "Ambient"
+            },
+            {
+              	"level": 2,
+                "code": "2.2",
+                "value": "Soft Drinks"
+            },
+            {
+              	"level": 3,
+                "code": "2.2.3",
+                "value": "Carbonated"
+            }
+        ],
+      	"extensions": [
+      		{
+      			"code": "Promotional",
+      			"value": "50% extra free"
+    		}
+      	]
+    }
+]

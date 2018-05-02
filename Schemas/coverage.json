@@ -1,0 +1,116 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+	"version": "2.0.0",
+	"title": "Coverage Item set",
+    "type": "array",
+    "items": {
+        "title": "Coverage Item",
+		"type": "object",
+		"properties": {
+			"ownLabel": {
+				"description": "Is Product Own Label",
+				"type": "boolean"
+			},
+			"hasImage": {
+				"description": "Has an image",
+				"type": "boolean"
+			},
+			"description": {
+				"description": "Product description",
+				"type": "string",
+				"minLength": 1
+			},
+			"retailerId": {
+				"description": "Retailers Product Id",
+				"type": "string",
+				"minLength": 1
+			},
+			"gtins": {
+				"title": "GTIN set",
+				"type": "array",
+				"items": {
+					"title": "GTIN",
+					"type": "object",
+					"properties": {
+						"gtin": {
+							"description": "GTIN / EAN",
+							"type": "string",
+							"minLength": 8,
+							"maxLength": 14
+						},
+						"supplier": {
+							"description": "Supplier for the GTIN / EAN",
+							"type": "string",
+							"minLength": 1
+						},
+						"preferred": {
+							"description": "Preferred supplier",
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"gtin", "supplier"
+					]
+				},
+				"minItems": 1,
+				"uniqueItems": true
+			},
+			"categories": {
+				"title": "Category set",
+				"type": "array",
+				"items": {
+					"title": "Category",
+					"type": "object",
+					"properties": {
+						"level": {
+							"description": "Category level",
+							"type": "number"
+						},
+						"code": {
+							"description": "Category group code",
+							"type": "string",
+							"minLength": 1
+						},
+						"value": {
+							"description": "Category group",
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					"required": [
+						"level", "code", "value"
+					]
+				},
+				"minItems": 0,
+				"uniqueItems": true
+			},
+			"extensions": {
+				"title": "Extension set",
+				"type": "array",
+				"items": {
+					"title": "Extension",
+					"type": "object",
+					"properties": {
+						"code": {
+							"description": "Extension Type",
+							"type": "string"
+						},
+						"value": {
+							"description": "Extension Value",
+							"type": "string"
+						}
+					},
+					"required": [
+						"code", "value"
+					]
+				},
+				"minItems": 0,
+				"uniqueItems": true
+			}
+		},
+		"required": [
+			"ownLabel", "description", "retailerId", "gtins"
+		]
+    },
+    "minItems": 1
+}
