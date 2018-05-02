@@ -1,2 +1,2 @@
-# Schemas
-Nielsen Brandbank Schemas
+# Coverage
+Nielsen Brandbank Coverage resources
