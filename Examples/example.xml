@@ -1,0 +1,54 @@
+﻿<RetailerFeedbackReport xmlns="http://www.brandbank.com/schemas/CoverageFeedback/2005/11">
+  <Message DateTime="2007-09-20T00:13:05.030" Domain="TES" />
+  <Item HasLabelData="true" HasImage="true">
+    <RetailerID>55001</RetailerID>
+    <Description>Delicious Test Beverage #1</Description>
+    <RangedOnlineDate>2019-03-20T00:00:00.000</RangedOnlineDate>
+    <GTINs>
+      <GTIN Value="0055000000001">
+        <Suppliers>
+          <Supplier>
+            <SupplierCode>1</SupplierCode>
+            <SupplierName>Jasons Testy Beverages</SupplierName>
+          </Supplier>
+        </Suppliers>
+      </GTIN>
+      <GTIN Value="0055000000001">
+        <Suppliers>
+          <Supplier>
+            <SupplierCode>2</SupplierCode>
+            <SupplierName>Jasons Competitor's Testy Beverages</SupplierName>
+          </Supplier>
+        </Suppliers>
+      </GTIN>
+    </GTINs>
+    <OwnLabel>false</OwnLabel>
+    <Categories>
+	<Category>Adult Herb/Fruit Drinks
+		<Group Code="1" Level="1">Category1</Group>
+		<Group Code="1.1" Level="2">Category1.1</Group>
+		<Group Code="1.1.1" Level="3">Category1.1.1</Group>
+		<Group Code="1.1.1.1" Level="4">Category1.1.1.1</Group>
+	</Category>
+    </Categories>
+    <DataContents>
+      <Content Type="Has Ingredients">false</Content>
+      <Content Type="Has GDA">false</Content>
+      <Content Type="Has Nutrition">false</Content>
+      <Content Type="Has Marketing Copy">false</Content>
+    </DataContents>
+	<RetailerExtensions>
+		<Extension Type="Assistant Buyer">John Smith</Extension>
+		<Extension Type="Buyer">John Smith</Extension>
+		<Extension Type="Buying Controller">John Smith</Extension>
+		<Extension Type="Buyer">John Smith</Extension>
+		<Extension Type="Category Director">John Smith</Extension>
+		<Extension Type="Commercial Director">John Smith</Extension>
+		<Extension Type="Store Count">123</Extension>
+		<Extension Type="Image Date">2007-09-10T00:13:05.030</Extension>
+		<Extension Type="Store">Wymondham</Extension>
+		<Extension Type="Store">Fleet</Extension>
+		<Extension Type="FIR 1169 Status">Compliant</Extension>
+	</RetailerExtensions>
+  </Item>
+</RetailerFeedbackReport>

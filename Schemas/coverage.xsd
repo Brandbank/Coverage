@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CoverageReport" version="2.1.0" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.brandbank.com/schemas/CoverageFeedback/2005/11" xmlns="http://www.brandbank.com/schemas/CoverageFeedback/2005/11">
+  <xs:element name="RetailerFeedbackReport" type="ReportType">
+  </xs:element>
+  <xs:complexType name="ReportType">
+    <xs:sequence>
+      <xs:element name="Message" type="MessageType" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Item" type="ItemType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MessageType">
+    <xs:sequence />
+    <xs:attribute name="DateTime" type="xs:dateTime" />
+    <xs:attribute name="Domain" type="DomainType" />
+  </xs:complexType>
+  <xs:complexType name="ItemType">
+    <xs:sequence>
+      <!-- Retailers Product ID -->
+      <xs:element name="RetailerID" type="MandatoryString" minOccurs="1" maxOccurs="1" />
+      <!-- Preferred/Main GTIN/EAN -->
+      <xs:element name="PrefGTIN" type="GTINValueType" minOccurs="0" maxOccurs="1" />
+      <!-- Preferred Supplier Type-->
+      <xs:element name="PrefSupplier" type="SupplierType" minOccurs="0" maxOccurs="1" />
+      <!-- Product Description -->
+      <xs:element name="Description" type="MandatoryString" minOccurs="1" maxOccurs="1" />
+      <!-- Product Ranged Online Date -->
+      <xs:element name="RangedOnlineDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+      <!-- List of Possible GTINs/EANs -->
+      <xs:element name="GTINs" type="GTINListType" minOccurs="1" maxOccurs="1" />
+      <!-- Is product Own Label -->
+      <xs:element name="OwnLabel" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+      <!-- List of Categories -->
+      <xs:element name="Categories" type="CategoryListType" minOccurs="1" maxOccurs="1" />
+      <!-- Brandbank Product ID-->
+      <xs:element name="BrandbankID" type="xs:integer" minOccurs="0" maxOccurs="unbounded" />
+      <!-- Retailer supplied comment-->
+      <xs:element name="Comment" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <!-- Elements of data held by the retailer -->
+      <xs:element name="DataContents" type="DataContentListType" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <!-- Additional Retailer Specific Data -->
+      <xs:element name="RetailerExtensions" type="RetailerExtensionsType" minOccurs="0" maxOccurs="1">
+      </xs:element>
+    </xs:sequence>
+    <!-- Does the retailer have label data-->
+    <xs:attribute name="HasLabelData" type="xs:boolean" default="false" />
+    <!-- Does the retailer have and image-->
+    <xs:attribute name="HasImage" type="xs:boolean" default="false" />
+  </xs:complexType>
+  <xs:complexType name="GTINListType">
+    <xs:sequence>
+      <!-- GTIN/EAN -->
+      <xs:element name="GTIN" type="GTINType" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GTINType">
+    <xs:sequence>
+      <!-- Suppliers for the GTIN/EAN -->
+      <xs:element name="Suppliers" type="SupplierListType" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="Value" type="GTINValueType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="SupplierListType">
+    <xs:sequence>
+      <!-- Suppliers for the GTIN/EAN -->
+      <xs:element name="Supplier" type="SupplierType" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SupplierType">
+    <xs:sequence>
+      <!-- Retailers Supplier Code -->
+      <xs:element name="SupplierCode" type="SupplierCodeType" minOccurs="0" maxOccurs="1" />
+      <!-- Retailers Supplier Name -->
+      <xs:element name="SupplierName" type="MandatoryString" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CategoryListType">
+    <xs:sequence>
+      <xs:element name="Category" type="CategoryType" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DomainType">
+    <xs:restriction base="MandatoryString">
+      <xs:maxLength value="3" />
+      <!-- e.g. 'TES'=Tesco, 'TWW'=Tesco Wine Warehouse, 'I_L'=Brandbank -->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SupplierCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Domain" type="DomainType" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="MandatoryString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GTINValueType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="8" />
+      <xs:maxLength value="14" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DataContentType">
+    <xs:simpleContent>
+      <xs:extension base="xs:boolean">
+        <xs:attribute name="Type" type="DataContentTypes" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DataContentListType">
+    <xs:sequence>
+      <xs:element name="Content" type="DataContentType" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetailerExtensionType">
+    <xs:simpleContent>
+      <xs:extension base="MandatoryString">
+        <xs:attribute name="Type" type="RetailerExtensionTypes" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="RetailerExtensionsType">
+    <xs:sequence>
+      <xs:element type="RetailerExtensionType" minOccurs="1" maxOccurs="unbounded" name="Extension" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType mixed="true" name="CategoryType">
+    <xs:sequence>
+      <!-- Hierarchy of categories -->
+      <xs:element name="Group" type="CategoryLevelType" minOccurs="0" maxOccurs="4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CategoryLevelType">
+    <xs:simpleContent>
+      <xs:extension base="MandatoryString">
+        <xs:attribute name="Code" type="MandatoryString" use="required" />
+        <xs:attribute name="Level" type="GroupLevelRestriction" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="RetailerExtensionTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Buyer" />
+      <xs:enumeration value="Assistant Buyer" />
+      <xs:enumeration value="Buying Controller" />
+      <xs:enumeration value="Category Director" />
+      <xs:enumeration value="Commercial Director" />
+      <xs:enumeration value="Store Count" />
+      <xs:enumeration value="Image Date" />
+      <xs:enumeration value="Store" />
+      <xs:enumeration value="Local Line" />
+      <xs:enumeration value="Legal Medical Classification" />
+      <xs:enumeration value="Ranged Online" />
+      <xs:enumeration value="Ranged Online Date" />
+      <xs:enumeration value="Retailer" />
+	  <xs:enumeration value="FIR 1169 Status" /> 	  
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DataContentTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Has Ingredients" />
+      <xs:enumeration value="Has GDA" />
+      <xs:enumeration value="Has Nutrition" />
+      <xs:enumeration value="Has Marketing Copy" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GroupLevelRestriction">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
