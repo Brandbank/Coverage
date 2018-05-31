@@ -6,7 +6,7 @@
         "rangedOnlineDate": "2018-04-01T00:00:00.000",
         "gtins": [
             {
-                "gtin": "0055000000001",
+                "gtin": "005",
                 "supplier": "Jasons Testy Beverages"
             },
             {
@@ -63,18 +63,8 @@
         "categories": [
             {
                 "level": 1,
-              	"code": "2",
+                "code": "2",
                 "value": "Ambient"
-            },
-            {
-              	"level": 2,
-                "code": "2.2",
-                "value": "Soft Drinks"
-            },
-            {
-              	"level": 3,
-                "code": "2.2.3",
-                "value": "Carbonated"
             }
         ],
       	"extensions": [
