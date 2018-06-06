@@ -3,7 +3,7 @@
         "ownLabel": false,
         "description": "Delicious Test Beverage #1",
         "retailerId": "55001",
-        "rangedOnlineDate": "2018-04-01T00:00:00.000",
+        "rangedOnlineDate": "2018-06-06T00:00:00.000",
         "gtins": [
             {
                 "gtin": "005",
@@ -48,7 +48,7 @@
         "ownLabel": false,
         "description": "Delicious Test Beverage #2",
         "retailerId": "55002",
-        "rangedOnlineDate": "2018-04-01T00:00:00.000",
+        "rangedOnlineDate": "2018-06-06T00:00:00.000",
         "gtins": [
             {
                 "gtin": "0055000000004",
